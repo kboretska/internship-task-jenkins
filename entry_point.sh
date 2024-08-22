@@ -4,11 +4,13 @@ set -e
 
 sleep 3
 
-./scripts/pgsql_restore.sh 2024-08-19.dump
+source variables.sh
+
+./scripts/pgsql_restore.sh 2024-08-19.dump $POSTGRES_USER $POSTGRES_PASSWORD
 
 gradle test
 
-./scripts/pgsql_restore.sh 2024-08-19.dump
+./scripts/pgsql_restore.sh 2024-08-19.dump $POSTGRES_USER $POSTGRES_PASSWORD
 
 cd /usr/local/tomcat/bin
 
