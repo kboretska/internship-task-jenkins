@@ -5,7 +5,7 @@
 #export PATH=$PATH:$pathA
 
 #write your password
-PGPASSWORD=password
+PGPASSWORD=$4
 export PGPASSWORD
 
 #change the path to the file from which will be made restore
@@ -13,11 +13,11 @@ pathB=backups/
 #write this on the command line as the first parameter
 filename=$1
 #write your user
-dbUser=postgres
+dbUser=$3
 #write your database
-database=postgres_db
+database=$2
 #write your host
-host=postgres
+host=localhost
 #write your port
 port=5432
 
