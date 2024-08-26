@@ -33,6 +33,8 @@ COPY . .
 # Set environment variables for the application
 RUN echo "export POSTGRES_USER=${POSTGRES_USER}" >> variables.sh \
     && echo "export POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >> variables.sh \
+    && echo "export POSTGRES_DB=${POSTGRES_DB}" >> variables.sh \
+    && echo "export POSTGRES_IP=${POSTGRES_IP}" >> variables.sh \
     && echo "export REDIS_IP=${REDIS_IP}" >> variables.sh \
     && echo "export MONGO_IP=${MONGO_IP}" >> variables.sh \
 

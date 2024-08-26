@@ -8,6 +8,8 @@ services:
       args:
         - POSTGRES_USER=${POSTGRES_USER}
         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_IP=postgres
         - REDIS_IP=redis
         - MONGO_IP=mongodb
     ports:

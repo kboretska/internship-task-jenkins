@@ -21,6 +21,7 @@ host=localhost
 #write your port
 port=5432
 
+
 psql -U $dbUser -h $host -p $port -d $database -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
 psql --set ON_ERROR_STOP=off -U $dbUser -h $host -p $port -d $database -1 -f $pathB$filename
 
