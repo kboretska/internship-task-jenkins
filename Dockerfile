@@ -1,6 +1,9 @@
 # Use an official Tomcat image for the final stage
 FROM tomcat:9.0.50-jdk11-openjdk AS base
 
+ARG POSTGRES_USER
+ARG POSTGRES_PASSWORD
+
 # Set environment variables for SDKMAN installation
 ENV SDKMAN_DIR="/usr/local/sdkman"
 ENV GRADLE_VERSION="7.5"
@@ -27,8 +30,19 @@ WORKDIR /app
 # Copy the source code into the container
 COPY . .
 
+# Set environment variables for the application
+RUN echo "export POSTGRES_USER=${POSTGRES_USER}" >> variables.sh \
+    && echo "export POSTGRES_PASSWORD=${POSTGRES_PASSWORD}" >> variables.sh \
+    && echo "export POSTGRES_DB=${POSTGRES_DB}" >> variables.sh \
+    && echo "export POSTGRES_IP=${POSTGRES_IP}" >> variables.sh \
+    && echo "export REDIS_IP=${REDIS_IP}" >> variables.sh \
+    && echo "export MONGO_IP=${MONGO_IP}" >> variables.sh \
+
 # Make entry_point.sh executable
 RUN chmod +x entry_point.sh
+
+# Make variables.sh executable
+RUN chmod +x variables.sh
 
 # Make pgsql_restore.sh executable
 RUN chmod +x scripts/pgsql_restore.sh
