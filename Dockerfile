@@ -1,8 +1,8 @@
 # Use an official Tomcat image for the final stage
 FROM tomcat:9.0.50-jdk11-openjdk AS base
 
-ARG POSTGRES_USER
-ARG POSTGRES_PASSWORD
+ARG POSTGRES_USER=postgres
+ARG POSTGRES_PASSWORD=postgres
 
 # Set environment variables for SDKMAN installation
 ENV SDKMAN_DIR="/usr/local/sdkman"
