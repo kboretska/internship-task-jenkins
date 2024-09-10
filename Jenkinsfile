@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_REPO = 'ponomarenko245/scheduler' // Replace with your Docker Hub repo
+        DOCKER_HUB_REPO = 'kateboretska/class' // Replace with your Docker Hub repo
     }
 
     stages {
